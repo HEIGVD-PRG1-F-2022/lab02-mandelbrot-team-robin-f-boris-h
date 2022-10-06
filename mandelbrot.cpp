@@ -12,6 +12,8 @@ const int MAX_ITERATIONS = 1000;
  *
  * @param
  */
+
+// TODO: add nX et nY -> nombre de pixeles
 vector<vector<int>> mandelbrot(double x1=-2, double y1=1.12, double x2=0.47, double y2=-1.12, int pixelSize=30)
 {
     // x1;y1 coordonée en haut a gauche de notre graph
@@ -43,6 +45,8 @@ vector<vector<int>> mandelbrot(double x1=-2, double y1=1.12, double x2=0.47, dou
     return pixelData;
 }
 
+// TODO: add nX et nY -> nombre de pixeles
+// TODO: changer l'ordre des paramètres pour permettre la surcharge !
 vector<vector<int>> mandelbrotCentre(double centreX=0, double centreY=0, double dx=3, double dy=3, int pixelSize=30)
 {
     double x1 = centreX - (dx / 2);
