@@ -6,6 +6,7 @@
 #define MANDELBROT_DISPLAY_H
 #include <vector>
 
-void display(std::vector<std::vector<int>> iterations, int maxIterations);
+void displayAscii(std::vector<std::vector<int>> iterations, int maxIterations);
+void displayIterations(std::vector<std::vector<int>> iterations, int maxIterations);
 
 #endif //MANDELBROT_DISPLAY_H
