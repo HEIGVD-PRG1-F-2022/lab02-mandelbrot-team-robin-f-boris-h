@@ -24,17 +24,21 @@ using namespace std;
 
 const int PIXELS_Y = 10;
 const int PIXELS_X = 10;
-const int MAX_ITERATIONS = 10;
+const int MAX_ITERATIONS = 100;
 
 vector<vector<int>> mandelbrot() {
-    vector<vector<int>> pixelData(PIXELS_X, vector<int>(PIXELS_Y, 0));
-    for (int pY = 0; pY < PIXELS_Y; pY++) {
-        for (int pX = 0; pX < PIXELS_X; pX++) {
-            int x0 = -2.0;
-            int y0 = -1;
 
-            int x = 0;
-            int y = 0;
+    vector<vector<int>> pixelData(PIXELS_X, vector<int>(PIXELS_Y, 0));
+
+    for (int pY = 0; pY < PIXELS_Y; pY ++)
+    {
+        for (int pX = 0; pX < PIXELS_X; pX ++)
+        {
+            double x0 = pX - (PIXELS_X / 2);
+            double y0 = pY - (PIXELS_Y / 2);
+
+            double x = 0;
+            double y = 0;
 
             int iterations = 0;
 
@@ -47,12 +51,19 @@ vector<vector<int>> mandelbrot() {
             pixelData[pX][pY] = iterations;
         }
     }
-
     return pixelData;
 }
 
 int main() {
     vector<vector<int>> test = mandelbrot();
+
+    for (int i = 0; i < test.size(); i++) {
+        for (int j = 0; j < test[i].size(); j++) {
+            cout << test[i][j] << " ";
+        }
+        cout << endl;
+    }
+
     return 0;
 }
 
