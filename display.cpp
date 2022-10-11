@@ -2,6 +2,7 @@
 #include <vector>
 #include <iostream>
 # include <string>
+#include <iomanip> // for setw
 
 using namespace std;
 
@@ -22,11 +23,19 @@ void displayAscii(vector<vector<int>> iterations, int maxIterations) {
 }
 
 void displayIterations(vector<vector<int>> iterations, int maxIterations) {
+
+    int maxLenght = 0;
+    while (maxIterations > 0)
+    {
+        maxLenght ++;
+        maxIterations /= 10;
+    }
+
     for (int pY = 0; pY < iterations.size(); pY ++)
     {
         for (int pX = 0; pX < iterations[pY].size(); pX ++)
         {
-            cout << iterations[pX][pY] << " "; // setw(to_string(maxIterations).length())
+            cout << setw(maxLenght) << iterations[pX][pY] << " "; // setw(size(to_string(maxIterations)))
         }
         cout << endl;
     }
