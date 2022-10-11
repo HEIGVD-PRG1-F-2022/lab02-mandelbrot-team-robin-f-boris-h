@@ -1,9 +1,10 @@
 /*
  * Fichier : main.cpp
  * Autheur : Boris Hutzli, Robin Forestier
- * Date    : 05.10.22- 13.10.22
+ * Date    : 13.10.22
  *
- * But     : 
+ * But     : Le but de ce deuxième laboratoire est de réaliser une visualisation d'une fractale de Mandelbrot.
+ *           Et de l'afficher de différente manière.
  */
 
 #include <iostream>
