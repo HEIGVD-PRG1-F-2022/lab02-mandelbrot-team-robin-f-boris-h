@@ -1,10 +1,9 @@
 /*
- * Labo 2 Mandelbrot set
+ * Fichier : main.cpp
+ * Autheur : Boris Hutzli, Robin Forestier
+ * Date    : 05.10.22- 13.10.22
  *
- * Boris Hutzli, Robin Forestier
- * 05.10.2022 - .10.2022
- * But:
- *
+ * But     : 
  */
 
 #include <iostream>
