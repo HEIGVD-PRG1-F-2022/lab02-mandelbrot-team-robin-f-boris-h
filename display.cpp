@@ -1,6 +1,7 @@
 #include "display.h"
 #include <vector>
 #include <iostream>
+# include <string>
 
 using namespace std;
 
@@ -25,7 +26,7 @@ void displayIterations(vector<vector<int>> iterations, int maxIterations) {
     {
         for (int pX = 0; pX < iterations[pY].size(); pX ++)
         {
-            cout << iterations[pX][pY] << " "; // TODO : tostring to get length
+            cout << iterations[pX][pY] << " "; // setw(to_string(maxIterations).length())
         }
         cout << endl;
     }
