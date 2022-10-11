@@ -12,14 +12,13 @@
 #include "mandelbrot.h"
 #include "display.h"
 #include "animation.h"
-#include "mandelbrot.h"
 
 using namespace std;
 
 const int MAX_ITERATIONS = 1000;
 
 int main() {
-    zoom(3, 10, -1, 1);
+    zoom(1, 100, 0.38, -0.1);
     //vector<vector<int>> test = mandelbrot(0.0, 0.0, 30, 30, 2.0, 2.0);
 
     //displayAscii(test, MAX_ITERATIONS);
