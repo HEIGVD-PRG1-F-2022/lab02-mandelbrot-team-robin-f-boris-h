@@ -17,12 +17,11 @@ using namespace std::chrono_literals; // ns, us, ms, s, h, etc.
 using std::chrono::system_clock;
 
 const int MAX_ITERATIONS = 1000;    // Nombre d'itérations
-const double ZOOM_FACTOR = 1.1;     // Le diviseur pour faire l'effet de zoom
 
 /*
  * Permet de faire des zoom dans le set de mandelbrot
  *
- * @param int delay = 3 : Temps en secondes entre chaque zoom
+ * @param int delay = 3000 : Temps en secondes entre chaque zoom
  * @param int animationCount = 10 : Nombre de zooms à faire
  * @param double centreX = 0 : Coordonée X du centre.
  * @param double centreY = 0 : Coordonée Y du centre.
@@ -30,14 +29,16 @@ const double ZOOM_FACTOR = 1.1;     // Le diviseur pour faire l'effet de zoom
  * @param double dY = 3 : Hauteur du visuel.
  * @param int nX = 30 : Nombres de pixels horizontal.
  * @param int nY = 30 : Nombres de pixels vertical.
+ * @param double zoomFactor = 1.9 : Le diviseur pour faire l'effet de zoom
  */
-void zoom (int delay = 3, int animationCount = 10, double centreX = 0, double centreY = 0, double dx = 3,
-           double dy = 3, int nX = 60, int nY = 60) {
+void zoom (int delay = 3000, int animationCount = 10, double centreX = 0, double centreY = 0, double dx = 3,
+           double dy = 3, int nX = 60, int nY = 60, double zoomFactor = 1.9) {
+
     for (int i = 0; i < animationCount; i++) {
         vector<vector<int>> generatedData = mandelbrot(centreX, centreY,  nX, nY, dx, dy, MAX_ITERATIONS);
         displayAscii(generatedData, MAX_ITERATIONS);
-        sleep_for(chrono::seconds(delay));
-        dx /= ZOOM_FACTOR;
-        dy /= ZOOM_FACTOR;
+        sleep_for(chrono::milliseconds (delay));
+        dx /= zoomFactor;
+        dy /= zoomFactor;
     }
 }
