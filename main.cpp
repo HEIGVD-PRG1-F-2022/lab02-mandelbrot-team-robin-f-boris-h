@@ -29,7 +29,7 @@ int main() {
     int largeur_ecran = (int)(csbi.srWindow.Right - csbi.srWindow.Left + 1);
     int hauteur_ecran = (int)(csbi.srWindow.Bottom - csbi.srWindow.Top + 1);
 
-    //zoom(1, 100, 0.38, -0.1);
+    zoom(1, 100, -0.74, -0.1, 3, 3, largeur_ecran, hauteur_ecran);
     vector<vector<int>> test = mandelbrot(1.5, 0.0, largeur_ecran, hauteur_ecran, 6.5, 2.5);
     // TODO: ERREUR vérifier x / y dans mandelbrot et display (invertion) !
     displayAscii(test, MAX_ITERATIONS);

@@ -29,10 +29,12 @@ const vector<int> ASCII_DISPLAYS = {' ', '.', ',', '*', '/', '(', '#', '%', '&',
 void displayAscii(vector<vector<int>> iterations, int maxIterations) {
     for (int pY = 0; pY < iterations.size(); pY ++) {
         for (int pX = 0; pX < iterations[pY].size(); pX ++) {
-            int currentIterations = iterations[pX][pY];
+            //int currentIterations = iterations[pX][pY];
+            int currentIterations = iterations[pY][pX];
             int asciiIndex = (currentIterations * ASCII_DISPLAYS.size() - 1) / maxIterations;
             char currentAscii = ASCII_DISPLAYS[asciiIndex];
-            cout << currentAscii << " ";
+            //cout << currentAscii << " ";
+            cout << currentAscii;
         }
         cout << endl;
     }
@@ -49,7 +51,7 @@ void displayIterations(vector<vector<int>> iterations, int maxIterations) {
 
     for (int pY = 0; pY < iterations.size(); pY ++) {
         for (int pX = 0; pX < iterations[pY].size(); pX ++) {
-            cout << setw(maxLenght) << iterations[pX][pY] << " "; // setw(size(to_string(maxIterations)))
+            cout << setw(maxLenght) << iterations[pY][pX] << " ";
         }
         cout << endl;
     }

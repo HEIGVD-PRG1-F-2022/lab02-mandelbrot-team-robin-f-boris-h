@@ -28,13 +28,13 @@ using namespace std;
 vector<vector<int>> mandelbrot(double x1 = -2, double y1 = 1.12, double x2 = 0.47, double y2 = -1.12, int nX = 30,
                                int nY = 30, int maxIterations = 1000) {
 
-    vector<vector<int>> pixelData(nX, vector<int>(nY, 0));
+    vector<vector<int>> pixelData(nY, vector<int>(nX, 0));
 
-    for (int i = 0; i < nX; i++) {
-        double x0 = x1 + ((x2 - x1) / nX) * i;
+    for (int j = 0; j < nY; j++) {
+        double y0 = y1 + ((y2 -y1) / nY) * j;
 
-        for (int j = 0; j < nY; j++) {
-            double y0 = y1 + ((y2 -y1) / nY) * j;
+        for (int i = 0; i < nX; i++) {
+            double x0 = x1 + ((x2 - x1) / nX) * i;
             double x = 0;
             double y = 0;
 
@@ -46,7 +46,7 @@ vector<vector<int>> mandelbrot(double x1 = -2, double y1 = 1.12, double x2 = 0.4
                 x = xtemp;
                 iterations++;
             }
-            pixelData[i][j] = iterations;
+            pixelData[j][i] = iterations;
         }
     }
     return pixelData;
