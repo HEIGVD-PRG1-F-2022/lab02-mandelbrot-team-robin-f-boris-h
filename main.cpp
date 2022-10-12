@@ -20,7 +20,7 @@ const int MAX_ITERATIONS = 1000;
 
 int main() {
     // Pour windows, on met le terminal en plein écran.
-    #ifdef _LINUX_
+    #ifdef _WIN32
     system("mode 650");
     ShowWindow(GetConsoleWindow(), SW_MAXIMIZE);
 
@@ -29,40 +29,50 @@ int main() {
 
     const int largeur_ecran = (int)(csbi.srWindow.Right - csbi.srWindow.Left + 1);
     const int hauteur_ecran = (int)(csbi.srWindow.Bottom - csbi.srWindow.Top + 1);
+    const int delay = 300;
 
     // Pour les autres system on utilise des ces valeurs.
     #else
     const int largeur_ecran = 50;
     const int hauteur_ecran = 25;
+    const int delay = 1000;
     #endif
 
-    cout << "Que voulez-vous voir ?\n1. mandelbrot iteration \n2. mandelbrot ascii\n3. mandelbrot zoom \n";
     int whatToDo = 0;
-    cin >> whatToDo;
+    bool userInputFalse = false;
+    do {
+        cout << "Que voulez-vous voir ?\n1. mandelbrot iteration \n2. mandelbrot ascii\n3. mandelbrot zoom \n";
+        cin >> whatToDo;
+
+        if (cin.fail()) {
+            userInputFalse = true;
+            cin.clear();
+            cin.ignore(1000, '\n');
+        } else {
+            userInputFalse = false;
+        }
+    } while (userInputFalse);
 
     vector<vector<int>> test;
 
     switch (whatToDo) {
         case 2:
-            test = mandelbrot(1.5, 0.0, largeur_ecran, hauteur_ecran, 6.5, 2.5);
+            test = mandelbrot(0.0, 0.0, largeur_ecran, hauteur_ecran, 2.5, 2.5);
             displayAscii(test, MAX_ITERATIONS);
             break;
         case 3:
-            zoom(5, 100, -0.7465, -0.075, 3, 3, largeur_ecran, hauteur_ecran, 2.4);
+            zoom(delay, 100, -0.74645, -0.0752, 3, 3, largeur_ecran,
+                 hauteur_ecran, 2.4);
+            break;
+        case 4:
+            zoom(delay, 15, -1.4012, -0.0, 3, 3, largeur_ecran,
+                 hauteur_ecran, 2);
             break;
         default:
             test = mandelbrot(1.5, 0.0, largeur_ecran, hauteur_ecran, 6.5, 2.5);
             displayIterations(test, MAX_ITERATIONS);
             break;
     }
-
-
-
-    //zoom(5, 100, -0.7465, -0.075, 3, 3, largeur_ecran, hauteur_ecran, 2.4);
-    //vector<vector<int>> test = mandelbrot(1.5, 0.0, largeur_ecran, hauteur_ecran, 6.5, 2.5);
-
-    //displayAscii(test, MAX_ITERATIONS);
-    //displayIterations(test, MAX_ITERATIONS);
 
     return 0;
 }

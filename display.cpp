@@ -27,6 +27,7 @@ const vector<int> ASCII_DISPLAYS = {' ', '.', ',', '*', '/', '(', '#', '%', '&',
  *                            utiliser
  */
 void displayAscii(vector<vector<int>> iterations, int maxIterations) {
+    string mandelbrotChar = "";
     for (int pY = 0; pY < iterations.size(); pY ++) {
         for (int pX = 0; pX < iterations[pY].size(); pX ++) {
             //int currentIterations = iterations[pX][pY];
@@ -34,12 +35,21 @@ void displayAscii(vector<vector<int>> iterations, int maxIterations) {
             int asciiIndex = (currentIterations * ASCII_DISPLAYS.size() - 1) / maxIterations;
             char currentAscii = ASCII_DISPLAYS[asciiIndex];
             //cout << currentAscii << " ";
-            cout << currentAscii;
+            mandelbrotChar += currentAscii;
         }
-        cout << endl;
+        //cout << endl;
+        mandelbrotChar += '\n';
     }
+
+    cout << mandelbrotChar;
 }
 
+/*
+ * Affichage du set de mandelbrot avec les nombre d'itérations
+ *
+ * @param vector<vector<int>> iterations : Vecteur contenant les nombres d'itérations pour chaque pixel
+ * @param int maxIterations : Nombre d'itérations maximum pour chaque pixel, utilisé pour calculer
+ */
 void displayIterations(vector<vector<int>> iterations, int maxIterations) {
 
     int maxLenght = 0;
