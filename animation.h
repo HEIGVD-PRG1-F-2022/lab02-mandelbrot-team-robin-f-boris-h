@@ -1,7 +1,3 @@
-//
-// Created by boris on 06.10.2022.
-//
-
 #ifndef MANDELBROT_ANIMATION_H
 #define MANDELBROT_ANIMATION_H
 void zoom (int delay = 3, int animationCount = 10, double centreX = 0, double centreY = 0, double dx = 3,

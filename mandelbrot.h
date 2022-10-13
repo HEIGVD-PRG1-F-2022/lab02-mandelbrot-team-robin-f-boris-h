@@ -1,7 +1,3 @@
-//
-// Created by boris on 06.10.2022.
-//
-
 #ifndef MANDELBROT_MANDELBROT_H
 #define MANDELBROT_MANDELBROT_H
 

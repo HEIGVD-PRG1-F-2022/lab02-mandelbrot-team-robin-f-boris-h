@@ -48,20 +48,21 @@ void displayAscii(vector<vector<int>> iterations, int maxIterations) {
  * Affichage du set de mandelbrot avec les nombre d'itérations
  *
  * @param vector<vector<int>> iterations : Vecteur contenant les nombres d'itérations pour chaque pixel
- * @param int maxIterations : Nombre d'itérations maximum pour chaque pixel, utilisé pour calculer
+ * @param int maxIterations : Nombre d'itérations maximum pour chaque pixel, utilisé pour calculer la longueur maximum
+ *                            pour l'affichage d'itérations
  */
 void displayIterations(vector<vector<int>> iterations, int maxIterations) {
 
-    int maxLenght = 0;
+    int maxLength = 0;
 
     while (maxIterations > 0) {
-        maxLenght ++;
+        maxLength ++;
         maxIterations /= 10;
     }
 
     for (int pY = 0; pY < iterations.size(); pY ++) {
         for (int pX = 0; pX < iterations[pY].size(); pX ++) {
-            cout << setw(maxLenght) << iterations[pY][pX] << " ";
+            cout << setw(maxLength) << iterations[pY][pX] << " ";
         }
         cout << endl;
     }
